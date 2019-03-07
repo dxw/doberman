@@ -1,0 +1,7 @@
+<h1>All properties</h1>
+
+<% @properties.each do |property| %>
+  <p>
+    <%= property.id %> - <%= property.address.humanize %> - <%= link_to 'Show', property_path(property) %>
+  </p>
+<% end %>
