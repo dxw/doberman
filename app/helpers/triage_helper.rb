@@ -1,0 +1,2 @@
+module TriageHelper
+end

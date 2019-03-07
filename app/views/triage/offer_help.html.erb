@@ -1,0 +1,11 @@
+<p>
+  This is a suggestion.
+</p>
+
+<%= form_tag triage_end_path, method: :get do |form| %>
+  <p>
+    Did that solve the problem?
+    <%= submit_tag 'Yes', name: :yes %>
+    <%= submit_tag 'No', name: :no %>
+  </p>
+<% end %>

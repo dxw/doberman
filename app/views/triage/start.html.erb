@@ -1,0 +1,10 @@
+<%= form_tag triage_1_path, method: :get do |form| %>
+  <p>
+    What problem are you having?
+    <%= select_tag :issue_type, options_for_select(Repair.issue_types.map { |t| [t[0].humanize, t[0]] }) %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Submit', name: nil %>
+  </p>
+<% end %>
