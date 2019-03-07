@@ -1,0 +1,7 @@
+<h1>All repairs</h1>
+
+<% @repairs.each do |repair| %>
+  <p>
+    <%= repair.id %> - <%= repair.issue_type.humanize %> - <%= link_to 'Show', repair_path(repair) %>
+  </p>
+<% end %>

@@ -1,0 +1,10 @@
+<%= form_with scope: :repair, url: repairs_path do |form| %>
+  <p>
+    <%= form.label :issue_type %><br>
+    <%= form.select :issue_type, options_for_select(Repair.issue_types.map { |t| [t[0].humanize, t[0]] }) %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
