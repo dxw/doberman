@@ -14,8 +14,11 @@ class RepairsController < ApplicationController
   def create
     @repair = Repair.new(repair_params)
 
-    @repair.save
-    redirect_to @repair
+    if @repair.save
+      redirect_to @repair
+    else
+      redirect_to action: :new, repair: repair_params
+    end
   end
 
   private
