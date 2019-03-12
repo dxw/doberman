@@ -1,9 +1,10 @@
 class TriageController < ApplicationController
-  def start
+  def select_issue_type
   end
 
-  def offer_help
+  def solution
     @issue_type = params[:issue_type]
+
     case @issue_type
       when 'no_electricity'
         @help_content =  'Do something to fix the electricity!'
@@ -14,7 +15,7 @@ class TriageController < ApplicationController
     end
   end
 
-  def end
+  def done
     if params[:no]
       redirect_to_repair params[:issue_type]
     end

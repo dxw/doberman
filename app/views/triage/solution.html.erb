@@ -2,7 +2,7 @@
   <%= @help_content %>
 </p>
 
-<%= form_tag triage_end_path, method: :get do |form| %>
+<%= form_tag triage_done_path, method: :get do |form| %>
   <%= hidden_field_tag :issue_type, @issue_type %>
 
   <p>
