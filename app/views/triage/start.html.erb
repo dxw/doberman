@@ -3,7 +3,7 @@
     What problem are you having?
   </p>
 
-  <% Repair.issue_types.each do |issue_type| %>
+  <% sorted_issue_types.each do |issue_type| %>
     <p>
       <%= radio_button_tag :issue_type, issue_type[0] %> <%= label_tag :issue_type, issue_type[0].humanize %>
     </p>
