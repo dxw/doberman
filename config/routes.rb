@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/admin/repairs/:id', controller: :repairs, action: 'show_admin'
+
   resources :properties
   resources :repairs
 

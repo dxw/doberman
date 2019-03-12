@@ -12,3 +12,14 @@
   <strong>Description:</strong>
   <%= @repair.description %>
 </p>
+
+<% if @admin %>
+  <h2>
+    Admin Only Fields
+  </h2>
+
+  <p>
+    <strong>Status:</strong>
+    <%= @repair.status.humanize %>
+  </p>
+<% end %>
