@@ -1,8 +1,13 @@
 <%= form_tag triage_1_path, method: :get do |form| %>
   <p>
     What problem are you having?
-    <%= select_tag :issue_type, options_for_select(Repair.issue_types.map { |t| [t[0].humanize, t[0]] }) %>
   </p>
+
+  <% Repair.issue_types.each do |issue_type| %>
+    <p>
+      <%= radio_button_tag :issue_type, issue_type[0] %> <%= label_tag :issue_type, issue_type[0].humanize %>
+    </p>
+  <% end %>
 
   <p>
     <%= submit_tag 'Submit', name: nil %>
