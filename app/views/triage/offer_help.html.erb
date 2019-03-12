@@ -5,7 +5,7 @@
 <%= form_tag triage_end_path, method: :get do |form| %>
   <p>
     Did that solve the problem?
-    <%= submit_tag 'Yes', name: :yes %>
+    <%= submit_tag 'Yes', name: nil %>
     <%= submit_tag 'No', name: :no %>
   </p>
 <% end %>
