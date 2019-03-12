@@ -3,6 +3,8 @@
 </p>
 
 <%= form_tag triage_end_path, method: :get do |form| %>
+  <%= hidden_field_tag :issue_type, @issue_type %>
+
   <p>
     Did that solve the problem?
     <%= submit_tag 'Yes', name: nil %>

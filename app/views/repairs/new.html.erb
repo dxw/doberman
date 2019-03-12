@@ -1,4 +1,4 @@
-<%= form_with scope: :repair, url: repairs_path do |form| %>
+<%= form_with scope: @repair, url: repairs_path do |form| %>
   <p>
     <%= form.label :property_id %><br>
     <%= form.collection_select :property_id, Property.all, :id, :address %>
@@ -6,7 +6,7 @@
 
   <p>
     <%= form.label :issue_type %><br>
-    <%= form.select :issue_type, options_for_select(Repair.issue_types.map { |t| [t[0].humanize, t[0]] }) %>
+    <%= form.select :issue_type, options_for_select(Repair.issue_types.map { |t| [t[0].humanize, t[0]] }, @repair.issue_type) %>
   </p>
 
   <p>
