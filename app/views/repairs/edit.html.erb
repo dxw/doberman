@@ -1,4 +1,4 @@
-<%= form_with model: @repair, url: repairs_path do |form| %>
+<%= form_with model: @repair do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -17,6 +17,11 @@
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, options_for_select(Repair.statuses.map { |t| [t[0].humanize, t[0]] }, @repair.status) %>
   </p>
 
   <p>
