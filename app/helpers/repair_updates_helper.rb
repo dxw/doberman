@@ -1,0 +1,2 @@
+module RepairUpdatesHelper
+end

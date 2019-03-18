@@ -23,6 +23,40 @@
   <%= @repair.status.humanize %>
 </p>
 
+<h2>Updates</h2>
+
+<% @repair.updates.each do |update| %>
+  <p>
+    <strong>Status:</strong>
+    <%= update.status.humanize %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= update.description %>
+  </p>
+<% end %>
+
+<h2>
+  Add an update:
+</h2>
+
+<%= form_with model: [ @repair, @repair.updates.build ] do |form| %>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, options_for_select(RepairUpdate.statuses.map { |t| [t[0].humanize, t[0]] }, @repair.status) %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
 <%= form_tag triage_select_issue_type_path, method: :get do |form| %>
   <p>
     <%= submit_tag 'New issue', name: nil %>

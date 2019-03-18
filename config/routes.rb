@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :properties
-  resources :repairs
+  resources :repairs do
+    resources :repair_updates, path: 'updates'
+  end
 
   namespace :triage do
     get '/solution', action: 'solution'
