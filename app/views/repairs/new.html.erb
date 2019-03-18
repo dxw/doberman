@@ -1,5 +1,15 @@
 <%= form_with scope: @repair, url: repairs_path do |form| %>
   <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %>
+  </p>
+
+  <p>
     <%= form.label :issue_type %><br>
     <%= form.select :issue_type, options_for_select(sorted_issue_types.map { |t| [t[0].humanize, t[0]] }, @repair.issue_type) %>
   </p>
