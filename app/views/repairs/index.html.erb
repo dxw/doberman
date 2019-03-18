@@ -2,6 +2,6 @@
 
 <% @repairs.each do |repair| %>
   <p>
-    <%= repair.property.address %> - <%= repair.issue_type.humanize %> - <%= link_to 'Show', repair_path(repair) %>
+    <%= repair.issue_type.humanize %> - <%= link_to 'Show', repair_path(repair) %>
   </p>
 <% end %>
