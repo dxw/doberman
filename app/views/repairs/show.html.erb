@@ -17,4 +17,10 @@
     <strong>Status:</strong>
     <%= @repair.status.humanize %>
   </p>
+<% else %>
+  <%= form_tag triage_select_issue_type_path, method: :get do |form| %>
+    <p>
+      <%= submit_tag 'New issue', name: nil %>
+    </p>
+  <% end %>
 <% end %>
