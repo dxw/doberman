@@ -18,19 +18,13 @@
   <%= @repair.description %>
 </p>
 
-<% if @admin %>
-  <h2>
-    Admin Only Fields
-  </h2>
+<p>
+  <strong>Status:</strong>
+  <%= @repair.status.humanize %>
+</p>
 
+<%= form_tag triage_select_issue_type_path, method: :get do |form| %>
   <p>
-    <strong>Status:</strong>
-    <%= @repair.status.humanize %>
+    <%= submit_tag 'New issue', name: nil %>
   </p>
-<% else %>
-  <%= form_tag triage_select_issue_type_path, method: :get do |form| %>
-    <p>
-      <%= submit_tag 'New issue', name: nil %>
-    </p>
-  <% end %>
 <% end %>

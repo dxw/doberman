@@ -7,13 +7,6 @@ class RepairsController < ApplicationController
     @repair = Repair.find(params[:id])
   end
 
-  def show_admin
-    @admin = true
-
-    show
-    render 'show'
-  end
-
   def new
     @repair = Repair.new(repair_params)
   end
