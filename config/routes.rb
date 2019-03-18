@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :properties
-  resources :repairs do
-    resources :repair_updates, path: 'updates'
+  resources :repairs, except: :delete do
+    resources :repair_updates, path: 'updates', only: :create
   end
 
   namespace :triage do
