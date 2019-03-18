@@ -10,19 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_111924) do
+ActiveRecord::Schema.define(version: 2019_03_18_141712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "repair_updates", force: :cascade do |t|
+    t.integer "status"
+    t.text "description"
+    t.bigint "repair_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["repair_id"], name: "index_repair_updates_on_repair_id"
+  end
 
   create_table "repairs", force: :cascade do |t|
     t.integer "issue_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.integer "status", default: 0
     t.string "name"
     t.text "address"
   end
 
+  add_foreign_key "repair_updates", "repairs"
 end

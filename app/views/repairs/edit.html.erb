@@ -20,11 +20,6 @@
   </p>
 
   <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, options_for_select(Repair.statuses.map { |t| [t[0].humanize, t[0]] }, @repair.status) %>
-  </p>
-
-  <p>
     <%= form.submit %>
   </p>
 <% end %>
