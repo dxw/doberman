@@ -1,0 +1,45 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - "db/migrate/**/*"
+    - "db/schema.rb"
+    - "bin/**/*"
+
+Rails:
+  Enabled: true
+
+Style/Alias:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Layout/TrailingBlankLines:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+  Exclude:
+    - "spec/**/*"
+    - "config/initializers/simple_form.rb"
+    - "config/initializers/rollbar.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "config/routes.rb"
