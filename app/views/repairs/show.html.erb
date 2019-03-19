@@ -23,7 +23,7 @@
   <%= @repair.status.humanize %>
 </p>
 
-<% unless @repair.updates.empty? %>
+<% if @repair.updates.any? %>
   <h2>Updates</h2>
   <%= render @repair.updates %>
 <% end %>

@@ -9,6 +9,7 @@ class RepairsController < ApplicationController
 
   def show
     @repair = Repair.find(params[:id])
+    @update = RepairUpdate.new
   end
 
   def new
@@ -29,17 +30,21 @@ class RepairsController < ApplicationController
     if @repair.save
       redirect_to @repair
     else
-      redirect_to action: :new, repair: repair_params
+      render 'new'
     end
   end
 
   def update
-    @repair = Repair.find(params[:id])
+    if @admin
+      @repair = Repair.find(params[:id])
 
-    if @admin && @repair.update(repair_params)
-      redirect_to @repair
+      if @repair.update(repair_params)
+        redirect_to @repair
+      else
+        render 'edit'
+      end
     else
-      redirect_to action: :edit, id: @repair.id
+      redirect_to action: :show, id: params[:id]
     end
   end
 

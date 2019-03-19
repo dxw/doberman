@@ -1,4 +1,17 @@
-<%= form_with model: @repair do |form| %>
+<% if @repair.errors.any? %>
+  <h2>
+    <%= pluralize(@repair.errors.count, "error") %>
+    prohibited this repair from being saved:
+  </h2>
+
+  <ul>
+    <% @repair.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @repair, local: true do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>

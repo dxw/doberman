@@ -1,9 +1,13 @@
 class RepairUpdatesController < ApplicationController
   def create
     @repair = Repair.find(params[:repair_id])
-    @update = @repair.updates.create(update_params)
+    @update = RepairUpdate.new(update_params.merge(repair: @repair))
 
-    redirect_to repair_path(@repair)
+    if @update.save
+      redirect_to @repair
+    else
+      render 'repairs/show'
+    end
   end
 
   private
