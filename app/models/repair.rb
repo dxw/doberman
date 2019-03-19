@@ -6,6 +6,11 @@ class Repair < ApplicationRecord
     water_leak_electrics not_secure_access exposed_wiring alarm_beeping
   ]
 
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :issue_type, presence: true
+  validates :description, presence: true
+
   def status
     last_update = updates.last
 
