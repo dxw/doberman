@@ -1,6 +1,10 @@
 class RepairsController < ApplicationController
   def index
-    @repairs = Repair.all
+    if @admin
+      @repairs = Repair.all
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -12,7 +16,11 @@ class RepairsController < ApplicationController
   end
 
   def edit
-    @repair = Repair.find(params[:id])
+    if @admin
+      @repair = Repair.find(params[:id])
+    else
+      redirect_to action: :show, id: params[:id]
+    end
   end
 
   def create
@@ -28,7 +36,7 @@ class RepairsController < ApplicationController
   def update
     @repair = Repair.find(params[:id])
 
-    if @repair.update(repair_params)
+    if @admin && @repair.update(repair_params)
       redirect_to @repair
     else
       redirect_to action: :edit, id: @repair.id
