@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   end
 
   namespace :triage do
+    get '/select', action: 'select_issue_type'
     get '/solution', action: 'solution'
     get '/done', action: 'done'
   end
 
-  root 'triage#select_issue_type', as: 'triage_select_issue_type'
+  root 'landing#index'
 end
