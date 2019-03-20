@@ -4,6 +4,9 @@ class RepairUpdatesController < ApplicationController
     @update = RepairUpdate.new(update_params.merge(repair: @repair))
 
     if @update.save
+      RepairMailer.with(email: @repair.email, repair_id: @repair.id)
+                  .updated_email.deliver_now
+
       redirect_to @repair
     else
       render 'repairs/show'
