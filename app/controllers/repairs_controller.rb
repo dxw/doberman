@@ -28,6 +28,9 @@ class RepairsController < ApplicationController
     @repair = Repair.new(repair_params)
 
     if @repair.save
+      RepairMailer.with(email: @repair.email, repair_id: @repair.id)
+                  .reported_email.deliver_later
+
       redirect_to @repair
     else
       render 'new'
