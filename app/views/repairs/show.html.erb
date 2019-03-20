@@ -1,4 +1,8 @@
 <p>
+  <%= link_to 'Edit', edit_repair_path(@repair) if @admin %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @repair.name %>
 </p>
@@ -31,10 +35,4 @@
 <% if @admin %>
   <h2>Add an update:</h2>
   <%= render 'repair_updates/form' %>
-
-  <%= form_tag triage_select_path, method: :get do |form| %>
-    <p>
-      <%= submit_tag 'New issue', name: nil %>
-    </p>
-  <% end %>
 <% end %>

@@ -12,18 +12,16 @@
   <body>
     <header>
       <% if session[:logged_in] %>
-        Logged in
-
-        <% if session[:logged_in_as_admin] %>
-          as admin
-          <%= link_to 'All Repairs', repairs_path %>
-        <% end %>
-
+        Logged in<%= ' as admin' if @admin %>
         <%= link_to 'Log out', auth_log_out_path %>
       <% else %>
         <%= link_to 'Log in', auth_log_in_path %>
         <%= link_to 'Log in as admin', auth_log_in_as_admin_path %>
       <% end %>
+
+      |
+      <%= link_to 'New issue', triage_select_path %>
+      <%= link_to 'All Repairs', repairs_path if @admin %>
     </header>
 
     <%= yield %>
