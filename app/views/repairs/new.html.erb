@@ -23,6 +23,11 @@
   </p>
 
   <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
     <%= form.label :issue_type %><br>
     <%= form.select :issue_type, options_for_select(sorted_issue_types.map { |t| [t[0].humanize, t[0]] }, @repair.issue_type) %>
   </p>

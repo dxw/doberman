@@ -8,6 +8,7 @@ class Repair < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
+  validates :email, presence: true
   validates :issue_type, presence: true
   validates :description, presence: true
 
